@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# useLocalStorage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<hr>
+<p>
+<a href="https://www.npmjs.org/package/react-hook-persist-data"><img src="https://img.shields.io/npm/v/react-hook-persist-data?style=flat-square&logo=npm&label=npm"></a>
+<a href="https://www.npmjs.org/package/react-hook-persist-data"><img alt="npm" src="https://img.shields.io/npm/dt/react-hook-persist-data?label=npm%20downloads&style=flat-square"></a>
+<a href="https://www.npmjs.org/package/react-hook-persist-data"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/react-hook-persist-data?color=brightgreen&label=package%20size&style=flat-square"></a>
 
-## Available Scripts
+<br>
+<a href="https://www.npmjs.com/package/"><img src="https://nodei.co/npm/react-hook-persist-data.png?downloads=true&downloadRank=true&stars=true"></a>
+</p>
 
-In the project directory, you can run:
+A React Hook to persist data locally.
 
-### `yarn start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Install with npm
 
-### `yarn test`
+```bash
+npm i use-local-storage
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Install with yarn
 
-### `yarn build`
+```bash
+yarn add use-local-storage
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Basic Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In its most basic form, the `useLocalStorage` hook just needs the Local Storage `key` you wish to use. However, it's advised that you also provde a default value as a second argument in the event that the `key` does not yet exist in Local Storage.
 
-### `yarn eject`
+The following usage will persist the `username` variable in a `"name"` key in Local Storage. It will have a default/initial value of an empty string `""`. This default value witll _only_ be used if there is no value already in Local Storage.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```jsx
+import useLocalStorage from "use-local-storage";
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+function MyComponent() {
+  const [username, setUsername] = useLocalStorage("name", "");
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  return (
+    <>
+      <input
+        value={username}
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+      />
+    </>
+  );
+}
+```
