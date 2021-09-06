@@ -1,6 +1,6 @@
 {
   "name": "react-hook-persist-data",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "imrishabh18",
   "description": "A React Hook to persist data locally",
   "keywords": ["react-hook", "local-storage", "useState", "react"],
