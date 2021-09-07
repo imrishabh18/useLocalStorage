@@ -19,13 +19,13 @@ A React Hook to persist data locally.
 Install with npm
 
 ```bash
-npm i use-local-storage
+npm i react-hook-persist-data
 ```
 
 Install with yarn
 
 ```bash
-yarn add use-local-storage
+yarn add react-hook-persist-data
 ```
 
 ---
@@ -37,7 +37,7 @@ In its most basic form, the `useLocalStorage` hook just needs the Local Storage 
 The following usage will persist the `username` variable in a `"name"` key in Local Storage. It will have a default/initial value of an empty string `""`. This default value witll _only_ be used if there is no value already in Local Storage.
 
 ```jsx
-import useLocalStorage from "use-local-storage";
+import useLocalStorage from "react-hook-persist-data";
 
 function MyComponent() {
   const [username, setUsername] = useLocalStorage("name", "");
